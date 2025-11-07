@@ -10,9 +10,12 @@
 
 const elements = [...document.querySelectorAll(`span.population`)];
 const convertation = elements.map((x) => {
-  if (!isNaN(x.textContent.replace(/,/g, ''))) {
-    return +x.textContent.replace(/,/g, '');
-  }
+  // if (!isNaN(x.textContent.replace(/,/g, ''))) {
+  //   return +x.textContent.replace(/,/g, '');
+  // }
+  return !isNaN(x.textContent.replace(/,/g, ''))
+    ? +x.textContent.replace(/,/g, '')
+    : 0;
 });
 
 const total = convertation.reduce((a, b) => a + b);
